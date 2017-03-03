@@ -1,5 +1,5 @@
 project: main.o
-	gcc main.o -lwiringPi -o project.o
+	g++ main.o -lwiringPi -lpthread -o project.o
 
-main.o: main.c
-	gcc -c main.c -lwiringPi
+main.o: main.cpp
+	g++ -c main.cpp -lwiringPi -lpthread
