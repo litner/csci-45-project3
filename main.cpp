@@ -59,7 +59,6 @@ int main(void) {
         switch(key(code)) {
           case 1:
             cout << "crap1\n";
-            PlaySound("C:\\Users\\Litner\\Desktop\\test.wav", NULL, SND_ASYNC);
             break;
           case 2:
             cout << "alsks\n";
@@ -75,3 +74,5 @@ int main(void) {
 
   return 0;
 }
+
+//PlaySound("C:\\Users\\Litner\\Desktop\\test.wav", NULL, SND_FILENAME);
