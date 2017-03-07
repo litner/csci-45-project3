@@ -9,6 +9,8 @@
 
 #define IR 1
 #define RelayPin 2
+#define LedOne 22
+#define LedTwo 23
 
 using namespace std;
 
@@ -57,11 +59,15 @@ int main(void) {
         switch(key(code)) {
           case 1:
             //std::cout << "crap1\n";
+            digitalWrite(LedOne, HIGH);
             break;
           case 2:
             //std::cout << "alsks\n";
+            digitalWrite(LedTwo, HIGH);
             break;
           case 3:
+            digitalWrite(LedOne, LOW);
+            digitalWrite(LedTwo, LOW);
             break;
           break;
         }
