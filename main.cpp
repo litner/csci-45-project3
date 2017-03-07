@@ -7,7 +7,7 @@
 #include <wiringPi.h>
 #include "./header_files/sentry.h"
 
-#define IR 1
+#define IR 26
 #define RelayPin 2
 #define LedOne 20
 #define LedTwo 21
