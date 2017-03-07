@@ -10,6 +10,8 @@
 #define IR 1
 #define RelayPin 2
 
+using namespace std;
+
 char *keymap[9] ={
 " KEY_NUMERIC_1 ",
 " KEY_NUMERIC_2 ",
@@ -46,7 +48,7 @@ int main(void) {
     return 1;
   }
 
-  pinmode(IR, INPUT);
+  pinMode(IR, INPUT);
   pinMode(RelayPin, OUTPUT);
 
   while(1) {
