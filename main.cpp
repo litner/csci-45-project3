@@ -62,11 +62,11 @@ int main(void) {
       if (millis() - buttonTimer > 400) {
         switch(key(code)) {
           case 1:
-            //std::cout << "crap1\n";
+            cout << "crap1" << endl;
             digitalWrite(LedOne, HIGH);
             break;
           case 2:
-            //std::cout << "alsks\n";
+            cout << "alsks" << endl;;
             digitalWrite(LedTwo, HIGH);
             break;
           case 3:
