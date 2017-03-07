@@ -69,6 +69,7 @@ int main(void) {
   pinMode(RelayPin, OUTPUT);
 
   while(1) {
+    cout << code << endl;
     if(code==NULL) continue;  {
       if (millis() - buttonTimer > 400) {
         switch(key(code)) {
