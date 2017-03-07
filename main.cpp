@@ -18,7 +18,19 @@ using namespace std;
 
 int cnt = 0;
 
-char *keymap[9] ={
+char *keymap[21] ={
+" KEY_CHANNELDOWN ",
+" KEY_CHANNEL ",
+" KEY_CHANNELUP ",
+" KEY_PREVIOUS ",
+" KEY_NEXT ",
+" KEY_PLAYPAUSE ",
+" KEY_VOLUMEDOWN ",
+" KEY_VOLUMEUP ",
+" KEY_EQUAL ",
+" KEY_NUMERIC_0 ",
+" BTN_0 ",
+" BTN_1 ",
 " KEY_NUMERIC_1 ",
 " KEY_NUMERIC_2 ",
 " KEY_NUMERIC_3 ",
@@ -28,10 +40,6 @@ char *keymap[9] ={
 " KEY_NUMERIC_7 ",
 " KEY_NUMERIC_8 ",
 " KEY_NUMERIC_9 "};
-
-void myISR(void) {
-  printf("cnt = %d\n", ++cnt);
-}
 
 int key(char *code) {
 
