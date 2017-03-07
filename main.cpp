@@ -60,10 +60,10 @@ int main(void) {
       if (millis() - buttonTimer > 400) {
         switch(key(code)) {
           case 1:
-            std::cout << "crap1\n";
+            //std::cout << "crap1\n";
             break;
           case 2:
-            std::cout << "alsks\n";
+            //std::cout << "alsks\n";
             break;
           case 3:
             break;
