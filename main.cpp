@@ -16,6 +16,8 @@
 
 using namespace std;
 
+int cnt = 0;
+
 char *keymap[9] ={
 " KEY_NUMERIC_1 ",
 " KEY_NUMERIC_2 ",
@@ -26,6 +28,10 @@ char *keymap[9] ={
 " KEY_NUMERIC_7 ",
 " KEY_NUMERIC_8 ",
 " KEY_NUMERIC_9 "};
+
+void myISR(void) {
+  printf("cnt = %d\n", ++cnt);
+}
 
 int key(char *code) {
 
