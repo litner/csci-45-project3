@@ -116,29 +116,29 @@ int main(void)  {
   if(wiringPiSetup() == -1) {
     printf("setup wiringPi failed !");
 
-  return 1;
+    return 1;
   }
 
-if(lirc_init("lirc",1)==-1)
-  exit(EXIT_FAILURE);
+  if(lirc_init("lirc",1)==-1)
+    exit(EXIT_FAILURE);
 
-ledInit();
-ledColorSet();
+  ledInit();
+  ledColorSet();
 
-if(lirc_readconfig(NULL,&config,NULL)==0) {
-  while(lirc_nextcode(&code)==0)  {
-    if(code==NULL) continue;  {
-      if (millis() - buttonTimer > 400) {
-        RGB(key(code));
-        ledColorSet(color);
+  if(lirc_readconfig(NULL,&config,NULL)==0) {
+    while(lirc_nextcode(&code)==0)  {
+      if(code==NULL) continue;  {
+        if (millis() - buttonTimer > 400) {
+          RGB(key(code));
+          ledColorSet(color);
+        }
       }
+      free(code);
     }
-  free(code);
+    lirc_freeconfig(config);
   }
-  lirc_freeconfig(config);
-}
 
-lirc_deinit();
+  lirc_deinit();
 
 exit(EXIT_SUCCESS);
 return 0;
