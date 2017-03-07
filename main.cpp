@@ -1,5 +1,7 @@
 #include <errno.h>
+#include <iostream>
 #include <lirc/lirc_client.h>
+#include <softPwm.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
