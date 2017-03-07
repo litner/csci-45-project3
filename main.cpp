@@ -7,7 +7,7 @@
 #include <lirc/lirc_client.h>
 #include <time.h>
 
-#define IR 1
+#define IR 26
 #define RelayPin 2
 #define LedOne 20
 #define LedTwo 21
