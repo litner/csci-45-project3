@@ -73,33 +73,7 @@ int main(void) {
   pinmode(IR, INPUT);
   pinMode(RelayPin, OUTPUT);
 
-  if(lirc_readconfig(NULL,&config,NULL)==0) {
-    while(lirc_nextcode(&code)==0)  {
-      if(code==NULL) continue;  {
-        if (millis() - buttonTimer > 400) {
-          switch(key(code)) {
-            case 1:
-              cout << "crap1" << endl;
-              digitalWrite(LedOne, HIGH);
-              break;
-            case 2:
-              cout << "alsks" << endl;;
-              digitalWrite(LedTwo, HIGH);
-              break;
-            case 3:
-              digitalWrite(LedOne, LOW);
-              digitalWrite(LedTwo, LOW);
-              break;
-            break;
-          }
-        }
-      }
-      free(code);
-    }
-    lirc_freeconfig(config);
-  }
-
-  /*while(1) {
+  while(1) {
     if(code==NULL) continue;  {
       if (millis() - buttonTimer > 400) {
         switch(key(code)) {
@@ -120,7 +94,7 @@ int main(void) {
       }
     }
     free(code);
-  }*/
+  }
 
   return 0;
 }
