@@ -9,8 +9,8 @@
 
 #define IR 1
 #define RelayPin 2
-#define LedOne 22
-#define LedTwo 23
+#define LedOne 23
+#define LedTwo 24
 
 using namespace std;
 
