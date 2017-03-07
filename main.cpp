@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 #include <wiringPi.h>
+#include <time.h>
 #include "./header_files/sentry.h"
 
 #define IR 26
@@ -42,7 +42,6 @@ char *keymap[21] ={
 " KEY_NUMERIC_9 "};
 
 int key(char *code) {
-
   int i;
   int num;
 
@@ -71,30 +70,42 @@ int main(void) {
   sentry.seek();
 
   pinmode(IR, INPUT);
-  pinMode(RelayPin, OUTPUT);
+  if(lirc_init("lirc", 1) == -1)
+    exit(EXIT_FAILURE);
 
-  while(1) {
-    cout << code << endl;
-    if(code==NULL) continue;  {
-      if (millis() - buttonTimer > 400) {
-        switch(key(code)) {
-          case 1:
-            cout << "crap1" << endl;
-            digitalWrite(LedOne, HIGH);
+  //pinMode(IR, INPUT);
+  pinMode(RelayPin, OUTPUT);
+  pinMode(LedOne, OUTPUT);
+  pinMode(LedTwo, OUTPUT);
+
+  if (lirc_readconfig(NULL, &config, NULL) == 0) {
+    while(lirc_nextcode(&code) == 0) {
+      cout << key(code) << endl;
+
+      if(code==NULL) continue;  {
+        if (millis() - buttonTimer > 400) {
+          switch(key(code)) {
+            case 13:
+              cout << "crap1" << endl;
+              digitalWrite(LedOne, HIGH);
+              break;
+            case 14:
+              cout << "alsks" << endl;;
+              digitalWrite(LedTwo, HIGH);
+              break;
+            case 15:
+              digitalWrite(LedOne, LOW);
+              digitalWrite(LedTwo, LOW);
+              break;
             break;
-          case 2:
-            cout << "alsks" << endl;;
-            digitalWrite(LedTwo, HIGH);
-            break;
-          case 3:
-            digitalWrite(LedOne, LOW);
-            digitalWrite(LedTwo, LOW);
-            break;
-          break;
+          }
         }
       }
+      free(code);
     }
-    free(code);
+
+    lirc_freeconfig(config);
+    exit(EXIT_SUCCESS);
   }
 
   return 0;
