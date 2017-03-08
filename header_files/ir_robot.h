@@ -5,19 +5,19 @@
 #include <lirc/lirc_client.h>
 #include <wiringPi.h>
 
-class IR_Receiver {
+class IR_Robot {
   private:
     int buttonTimer;
     char *c;
     char *code;
     struct lirc_config *config;
-    char *keymap[MAXSIZE]
-    const int MAXSIZE = 10;
+    char *keymap;
+    int MAXSIZE;
 
     int key(char*);
   public:
-    IR_Receiver(void);
-    ~IR_Receiver(void);
+    IR_Robot(void);
+    ~IR_Robot(void);
     void checkCode(void);
 };
 #endif

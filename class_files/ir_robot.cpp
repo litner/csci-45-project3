@@ -1,8 +1,12 @@
 #include "./../header_files/ir_robot.h"
 
-IR_Robot::IR_Receiver(void) {
+static const int IR_Robot::MAXSIZE;
+
+IR_Robot::IR_Robot(void) {
   if(lirc_init("lirc", 1) == -1)
     exit(EXIT_FAILURE);
+
+  MAXSIZE = 10;
 
   keymap = new char [MAXSIZE] {
   " KEY_NUMERIC_0 ",
