@@ -1,4 +1,4 @@
-#include "./../header_files/ir_receiver.h"
+#include "./../header_files/ir_robot.h"
 
 IR_Robot::IR_Receiver(void) {
   if(lirc_init("lirc", 1) == -1)
