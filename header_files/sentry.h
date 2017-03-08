@@ -1,9 +1,7 @@
 #ifndef SENTRY_H
 #define SENTRY_H
 
-#include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
 #include <wiringPi.h>
 #include "./../header_files/servo_sensor.h"
 #include "./../header_files/relay.h"
