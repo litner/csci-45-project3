@@ -69,7 +69,7 @@ int main(void) {
   //pinMode(IR, INPUT);
   pinMode(RelayPin, OUTPUT);
 
-  while(1) {
+/*  while(1) {
     cout << code << endl;
     if(code==NULL) continue;  {
       if (millis() - buttonTimer > 400) {
@@ -91,7 +91,7 @@ int main(void) {
       }
     }
     free(code);
-  }
+  }*/
   Sentry sentry;
   sentry.seek();
 
