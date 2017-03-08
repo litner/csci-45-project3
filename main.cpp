@@ -1,7 +1,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string>
+#include <string.h>
 #include <wiringPi.h>
 #include "./header_files/sentry.h"
 
