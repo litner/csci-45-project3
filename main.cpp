@@ -93,7 +93,7 @@ int main(void) {
     free(code);
   }*/
   Sentry sentry;
-  sentry.seek();
+  sentry.seek(code);
 
   return 0;
 }
