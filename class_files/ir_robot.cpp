@@ -6,7 +6,18 @@ IR_Robot::IR_Robot(void) {
 
   MAXSIZE = 10;
 
-  char *keyMapSetup[MAXSIZE] = {
+  buttonTimer = millis();
+}
+
+IR_Robot::~IR_Robot(void) {
+  lirc_freeconfig(config);
+  exit(EXIT_SUCCESS);
+}
+
+int IR_Robot::key(char *code) {
+  int num = 0;
+
+  char *keymap[MAXSIZE] = {
     " KEY_NUMERIC_0 ",
     " KEY_NUMERIC_1 ",
     " KEY_NUMERIC_2 ",
@@ -18,19 +29,6 @@ IR_Robot::IR_Robot(void) {
     " KEY_NUMERIC_8 ",
     " KEY_NUMERIC_9 "
   };
-
-  keymap = keyMapSetup;
-
-  buttonTimer = millis();
-}
-
-IR_Robot::~IR_Robot(void) {
-  lirc_freeconfig(config);
-  exit(EXIT_SUCCESS);
-}
-
-int IR_Robot::key(char *code) {
-  int num = 0;
 
   for (int i = 0; i < MAXSIZE; i++)
     if (strstr(code, keymap[i]))

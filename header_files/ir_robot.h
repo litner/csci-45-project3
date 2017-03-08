@@ -21,7 +21,6 @@ class IR_Robot {
     char *c;
     char *code;
     struct lirc_config *config;
-    char *keymap;
     int MAXSIZE;
 
     int key(char*);
