@@ -18,6 +18,7 @@ IR_Robot::~IR_Robot(void) {
 
 int IR_Robot::key(char *code) {
   int num = 0;
+  int i;
 
   char *keymap[MAXSIZE] = {
     " KEY_NUMERIC_0 ",
@@ -32,7 +33,7 @@ int IR_Robot::key(char *code) {
     " KEY_NUMERIC_9 "
   };
 
-  for (int i = 0; i < MAXSIZE; i++)
+  for (i = 0; i < MAXSIZE; i++)
     if (strstr(code, keymap[i]))
       num = i;
 
