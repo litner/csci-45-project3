@@ -6,7 +6,7 @@ IR_Robot::IR_Robot(void) {
 
   c = NULL;
   code = NULL;
-  MAXSIZE = 10;
+  MAXSIZE = 21;
 
   buttonTimer = millis();
 }
@@ -21,6 +21,18 @@ int IR_Robot::key(char *code) {
   int i;
 
   char *keymap[MAXSIZE] = {
+    " KEY_CHANNELDOWN ",
+    " KEY_CHANNEL ",
+    " KEY_CHANNELUP ",
+    " KEY_PREVIOUS ",
+    " KEY_NEXT ",
+    " KEY_PLAYPAUSE ",
+    " KEY_VOLUMEDOWN ",
+    " KEY_VOLUMEUP ",
+    " KEY_EQUAL ",
+    " KEY_NUMERIC_0 ",
+    " BTN_0 ",
+    " BTN_1 ",
     " KEY_NUMERIC_0 ",
     " KEY_NUMERIC_1 ",
     " KEY_NUMERIC_2 ",
