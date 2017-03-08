@@ -40,6 +40,8 @@ int IR_Robot::key(char *code) {
     if (strstr(code, keymap[i]))
       num = i;
 
+  cout << "test4:" << num << endl;
+
   return num + 1;
 }
 
@@ -49,6 +51,7 @@ void IR_Robot::checkCode(void) {
       cout << "test1" << endl;
       switch(key(code)) {
         case 1:
+          cout << "test5" << endl;
           cout << key(code) << endl;
           break;
         case 2:
