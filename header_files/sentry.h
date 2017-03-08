@@ -8,6 +8,8 @@
 #include "./../header_files/servo_sensor.h"
 #include "./../header_files/relay.h"
 
+using namespace std;
+
 class Sentry {
   private:
     ServoSensor servo_sensor;
@@ -17,6 +19,6 @@ class Sentry {
     Sentry(void);
     ~Sentry(void);
     void seek(void);
-    void destroy(int);
+    void destroy(void);
 };
 #endif
