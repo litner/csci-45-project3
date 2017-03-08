@@ -1,10 +1,17 @@
 #ifndef IR_ROBOT_H
 #define IR_ROBOT_H
 
+#include <errno.h>
 #include <iostream>
 #include <lirc/lirc_client.h>
+#include <softPwm.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include <wiringPi.h>
+
+#define uchar unsigned char
 
 using namespace std;
 
