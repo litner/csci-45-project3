@@ -33,6 +33,8 @@ int IR_Robot::key(char *code) {
     " KEY_NUMERIC_9 "
   };
 
+  cout << "test" << endl;
+
   for (i = 0; i < MAXSIZE; i++)
     if (strstr(code, keymap[i]))
       num = i;
