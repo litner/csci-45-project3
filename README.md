@@ -24,7 +24,9 @@ Isaac Fielding
 [IR_Remote_Control](https://www.sunfounder.com/learn/sensor-kit-v2-0-for-b/lesson-23-ir-remote-control-sensor-kit-v2-0-for-b.html) <br />
 
 ### Pins ###
-pins pending <br />
+servo 17 <br />
+infrared 27 <br />
+RelayPin 22 <br />
 
 ## Responsibilities ##
 responsibilities pending <br />

@@ -2,11 +2,12 @@
 #include <wiringPi.h>
 #include <softPwm.h>
 #include <stdio.h>
-#include <errno.h>
 #include <stdlib.h>
 #include <string.h>
 #include <lirc/lirc_client.h>
 #include <time.h>
+#include <errno.h>
+#include "./header_files/sentry.h"
 
 #define IR 26
 #define RelayPin 2
@@ -61,7 +62,7 @@ int main(void) {
   char *c;
 
   if(wiringPiSetupGpio() < 0) {
-    fprintf(stderr, "Unable to setup wiringPi:%s\n",strerror(errno));
+    fprintf(stderr, "Unable to setup wiringPi:%s\n", strerror(errno));
     return 1;
   }
 
@@ -91,6 +92,8 @@ int main(void) {
     }
     free(code);
   }
+  Sentry sentry;
+  sentry.seek();
 
   return 0;
 }
