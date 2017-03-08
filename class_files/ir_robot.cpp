@@ -33,9 +33,10 @@ int IR_Robot::key(char *code) {
     " KEY_NUMERIC_9 "
   };
 
-  cout << "test" << endl;
+  cout << "test2" << endl;
 
   for (i = 0; i < MAXSIZE; i++)
+    cout << "test3" << endl;
     if (strstr(code, keymap[i]))
       num = i;
 
@@ -45,6 +46,7 @@ int IR_Robot::key(char *code) {
 void IR_Robot::checkCode(void) {
   if (lirc_readconfig(NULL, &config, NULL) == 0) {
     if (millis() - buttonTimer > 400) {
+      cout << "test1" << endl;
       switch(key(code)) {
         case 1:
           cout << key(code) << endl;
