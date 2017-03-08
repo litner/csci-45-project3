@@ -20,7 +20,7 @@ int IR_Robot::key(char *code) {
   int num = 0;
   int i;
 
-  char *keymap[MAXSIZE] = {
+  char *keymap[21] = {
     " KEY_CHANNELDOWN ",
     " KEY_CHANNEL ",
     " KEY_CHANNELUP ",
@@ -30,7 +30,6 @@ int IR_Robot::key(char *code) {
     " KEY_VOLUMEDOWN ",
     " KEY_VOLUMEUP ",
     " KEY_EQUAL ",
-    " KEY_NUMERIC_0 ",
     " BTN_0 ",
     " BTN_1 ",
     " KEY_NUMERIC_0 ",
