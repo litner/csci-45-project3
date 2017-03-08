@@ -2,7 +2,7 @@ project: main.o relay.o sentry.o servo_sensor.o
 	g++ main.o relay.o sentry.o servo_sensor.o -lwiringPi -lpthread -o project.o
 
 main.o: main.cpp
-	g++ -c -std=c99 main.cpp -lwiringPi
+	g++ -c -std=c++98 main.cpp -lwiringPi
 
 relay.o: ./class_files/relay.cpp ./header_files/relay.h
 		g++ -c ./class_files/relay.cpp -lwiringPi
