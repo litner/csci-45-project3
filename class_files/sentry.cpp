@@ -14,12 +14,16 @@ void Sentry::seek(void) {
     if (result == HIGH)
       destroy();
 
+    ir_robot.checkCode();
+
     delay(50);
 
     result = servo_sensor.searchRight();
 
     if (result == HIGH)
       destroy();
+
+    ir_robot.checkCode();
 
     delay(50);
   }
