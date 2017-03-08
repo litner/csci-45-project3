@@ -1,24 +1,25 @@
 #include "./../header_files/ir_robot.h"
 
-static const int IR_Robot::MAXSIZE;
-
 IR_Robot::IR_Robot(void) {
   if(lirc_init("lirc", 1) == -1)
     exit(EXIT_FAILURE);
 
   MAXSIZE = 10;
 
-  keymap = new char [MAXSIZE] {
-  " KEY_NUMERIC_0 ",
-  " KEY_NUMERIC_1 ",
-  " KEY_NUMERIC_2 ",
-  " KEY_NUMERIC_3 ",
-  " KEY_NUMERIC_4 ",
-  " KEY_NUMERIC_5 ",
-  " KEY_NUMERIC_6 ",
-  " KEY_NUMERIC_7 ",
-  " KEY_NUMERIC_8 ",
-  " KEY_NUMERIC_9 "};
+  char tempArray[MAXSIZE] = {
+    " KEY_NUMERIC_0 ",
+    " KEY_NUMERIC_1 ",
+    " KEY_NUMERIC_2 ",
+    " KEY_NUMERIC_3 ",
+    " KEY_NUMERIC_4 ",
+    " KEY_NUMERIC_5 ",
+    " KEY_NUMERIC_6 ",
+    " KEY_NUMERIC_7 ",
+    " KEY_NUMERIC_8 ",
+    " KEY_NUMERIC_9 "
+  };
+
+  keymap = tempArray;
 
   buttonTimer = millis();
 }
@@ -40,19 +41,17 @@ int IR_Robot::key(char *code) {
 
 void IR_Robot::checkCode(void) {
   if (lirc_readconfig(NULL, &config, NULL) == 0) {
-    if(code == NULL) continue;  {
-      if (millis() - buttonTimer > 400) {
-        switch(key(code)) {
-          case 1:
-            cout << key(code) << endl;
-            break;
-          case 2:
-            cout << key(code) << endl;
-            break;
-          case 3:
-            cout << key(code) << endl;
-            break;
-        }
+    if (millis() - buttonTimer > 400) {
+      switch(key(code)) {
+        case 1:
+          cout << key(code) << endl;
+          break;
+        case 2:
+          cout << key(code) << endl;
+          break;
+        case 3:
+          cout << key(code) << endl;
+          break;
       }
     }
     free(code);

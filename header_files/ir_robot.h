@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include <lirc/lirc_client.h>
+#include <string.h>
 #include <wiringPi.h>
+
+using namespace std;
 
 class IR_Robot {
   private:
