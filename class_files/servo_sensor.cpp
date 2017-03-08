@@ -11,7 +11,7 @@ int ServoSensor::searchLeft(void) {
   for (int i = 0; i <= 25; i++) {
     softPwmWrite(servo, i);
 
-    if (digitalRead(infrared) == HIGH)
+    if (digitalRead(infrared) == LOW)
       return HIGH;
 
     delay(100);
@@ -24,7 +24,7 @@ int ServoSensor::searchRight(void) {
   for (int i = 25; i >= 0; i--) {
     softPwmWrite(servo, i);
 
-    if (digitalRead(infrared) == HIGH)
+    if (digitalRead(infrared) == LOW)
       return HIGH;
 
     delay(100);
