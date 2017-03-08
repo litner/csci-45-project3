@@ -21,18 +21,7 @@ class IR_Robot {
     char *c;
     char *code;
     struct lirc_config *config;
-    char *keymap[MAXSIZE] = {
-      " KEY_NUMERIC_0 ",
-      " KEY_NUMERIC_1 ",
-      " KEY_NUMERIC_2 ",
-      " KEY_NUMERIC_3 ",
-      " KEY_NUMERIC_4 ",
-      " KEY_NUMERIC_5 ",
-      " KEY_NUMERIC_6 ",
-      " KEY_NUMERIC_7 ",
-      " KEY_NUMERIC_8 ",
-      " KEY_NUMERIC_9 "
-    };
+    char *keymap;
     int MAXSIZE;
 
     int key(char*);
