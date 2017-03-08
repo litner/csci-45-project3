@@ -6,21 +6,6 @@ IR_Robot::IR_Robot(void) {
 
   MAXSIZE = 10;
 
-  char tempArray[MAXSIZE] = {
-    " KEY_NUMERIC_0 ",
-    " KEY_NUMERIC_1 ",
-    " KEY_NUMERIC_2 ",
-    " KEY_NUMERIC_3 ",
-    " KEY_NUMERIC_4 ",
-    " KEY_NUMERIC_5 ",
-    " KEY_NUMERIC_6 ",
-    " KEY_NUMERIC_7 ",
-    " KEY_NUMERIC_8 ",
-    " KEY_NUMERIC_9 "
-  };
-
-  keymap = tempArray;
-
   buttonTimer = millis();
 }
 
