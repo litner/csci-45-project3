@@ -42,7 +42,7 @@ void IR_Robot::start(void) {
   if(lirc_readconfig(NULL, &config, NULL) == 0) {
       while(lirc_nextcode(&code) == 0)  {
         if(code == NULL) continue;  {
-          if (millis() - buttonTimer > 400)
+          if (millis() - buttonTimer > 400) {
             int value = key(code);
 
             relay.on();
@@ -60,6 +60,7 @@ void IR_Robot::start(void) {
             }
 
             relay.off();
+          }
         }
 
         free(code);
