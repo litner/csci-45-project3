@@ -19,8 +19,8 @@ class IR_Robot {
   private:
     int buttonTimer;
     char *c;
-    char *code;
-    struct lirc_config *config;
+    /*char *code;
+    struct lirc_config *config;*/
     int MAXSIZE;
 
     int key(char* code);
