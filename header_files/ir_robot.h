@@ -13,18 +13,15 @@
 #include "./../header_files/random_player.h"
 #include "./../header_files/relay.h"
 
-#define uchar unsigned char
-
 using namespace std;
 
 class IR_Robot {
   private:
     int buttonTimer;
-    char *c;
     void checkCode(int);
-    char *code;
+    string code;
     struct lirc_config *config;
-    int key(char*);
+    int key(string);
     int MAXSIZE;
     RandomPlayer random_player;
     Relay relay;

@@ -5,7 +5,6 @@ IR_Robot::IR_Robot(void) {
     exit(EXIT_FAILURE);
 
   buttonTimer = millis();
-  c = NULL;
   code = NULL;
   config = NULL;
   MAXSIZE = 10;
@@ -14,10 +13,10 @@ IR_Robot::IR_Robot(void) {
 
 IR_Robot::~IR_Robot(void) { }
 
-int IR_Robot::key(char* code) {
+int IR_Robot::key(string code) {
   int num = 0;
 
-  char *keymap[MAXSIZE] = {
+  string keymap[MAXSIZE] = {
     " KEY_NUMERIC_0 ",
     " KEY_NUMERIC_1 ",
     " KEY_NUMERIC_2 ",
