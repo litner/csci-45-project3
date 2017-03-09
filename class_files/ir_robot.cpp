@@ -43,13 +43,13 @@ void IR_Robot::checkCode(int code) {
 
   switch(code) {
     case 1:
-      cout << value << endl;
+      cout << code << endl;
       break;
     case 2:
-      cout << value << endl;
+      cout << code << endl;
       break;
     case 3:
-      cout << value << endl;
+      cout << code << endl;
       break;
   }
 
