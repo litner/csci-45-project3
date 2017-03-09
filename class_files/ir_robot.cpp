@@ -49,6 +49,8 @@ int IR_Robot::key(char* code) {
     }
   }
 
+  cout << "test:" << num << endl;
+
   return num + 1;
 }
 
