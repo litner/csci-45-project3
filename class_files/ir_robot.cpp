@@ -4,8 +4,9 @@ IR_Robot::IR_Robot(void) {
   if(lirc_init("lirc", 1) == -1)
     exit(EXIT_FAILURE);
 
-  c = NULL;
-  code = NULL;
+  free(code);
+  //c = NULL;
+  //code = NULL;
   MAXSIZE = 21;
 
   buttonTimer = millis();
