@@ -1,9 +1,6 @@
 #include "./../header_files/ir_robot.h"
 
 IR_Robot::IR_Robot(void) {
-  if(lirc_init("lirc", 1) == -1)
-    exit(EXIT_FAILURE);
-
   MAXSIZE = 10;
 
   buttonTimer = millis();
@@ -51,5 +48,4 @@ void IR_Robot::checkCode(char* code) {
         break;
     }
   }
-  free(code);
 }

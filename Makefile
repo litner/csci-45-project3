@@ -11,7 +11,7 @@ servo_sensor.o: ./class_files/servo_sensor.cpp ./header_files/servo_sensor.h
 		g++ -c ./class_files/servo_sensor.cpp -lpthread -lwiringPi
 
 sentry.o: ./class_files/sentry.cpp ./header_files/sentry.h
-		g++ -c ./class_files/sentry.cpp -lpthread -lwiringPi
+		g++ -c ./class_files/sentry.cpp -llirc_client -lpthread -lwiringPi
 
 ir_robot.o: ./class_files/ir_robot.cpp ./header_files/ir_robot.h
 		g++ -c ./class_files/ir_robot.cpp -llirc_client -lwiringPi

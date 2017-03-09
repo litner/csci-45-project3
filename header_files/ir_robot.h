@@ -18,7 +18,6 @@ using namespace std;
 class IR_Robot {
   private:
     int buttonTimer;
-    char *c;
     int MAXSIZE;
     int key(char*);
   public:

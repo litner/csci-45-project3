@@ -1,6 +1,9 @@
 #include "./../header_files/sentry.h"
 
 Sentry::Sentry(void) {
+  if(lirc_init("lirc",1)==-1)
+    exit(EXIT_FAILURE);
+
   result = LOW;
   cout << "Turret Deployed" << endl;
   code = NULL;
@@ -19,8 +22,9 @@ void Sentry::seek(void) {
       if (result == HIGH)
         destroy();
 
-      if(code==NULL) continue; {
+      if(code == NULL) continue; {
         ir_robot.checkCode(code);
+        free(code);
       }
 
       delay(50);
@@ -30,8 +34,9 @@ void Sentry::seek(void) {
       if (result == HIGH)
         destroy();
 
-        if(code==NULL) continue; {
+        if(code == NULL) continue; {
           ir_robot.checkCode(code);
+          free(code);
         }
 
       delay(50);
