@@ -1,6 +1,7 @@
 #include <errno.h>
 #include <iostream>
 #include <lirc/lirc_client.h>
+#include <pthread.h>
 #include <softPwm.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,21 +20,18 @@ int main(void) {
     return 1;
   }
 
+  pthread_t robot, guard
+
   Sentry sentry;
   IR_Robot ir_robot;
 
   system("omxplayer /home/pi/csci-45-project3/mp3s/start.mp3");
 
-  int pid;
-  pid = fork();
+  pthread_create(&robot, NULL, ir_robot.start(), NULL);
+  pthread_create(&guard, NULL< sentry.seek(), NULL);
 
-  if(pid == 0) {
-    ir_robot.start();
-    _exit(0);
-  } else {
-    sentry.seek();
-    wait();
-  }
+  pthread_join(robot, NULL);
+  pthread_join(guard, NULL);
 
   return 0;
 }

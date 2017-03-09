@@ -5,7 +5,9 @@ IR_Robot::IR_Robot(void) {
     exit(EXIT_FAILURE);
 
   buttonTimer = millis();
+  c = NULL;
   code = NULL;
+  config = NULL;
   MAXSIZE = 10;
   cout << "Robot Activated, waiting for command" << endl;
 }
@@ -15,7 +17,7 @@ IR_Robot::~IR_Robot(void) { }
 int IR_Robot::key(char* code) {
   int num = 0;
 
-  char *keymap[MAXSIZE] ={
+  char *keymap[MAXSIZE] = {
     " KEY_NUMERIC_0 ",
     " KEY_NUMERIC_1 ",
     " KEY_NUMERIC_2 ",
@@ -25,12 +27,12 @@ int IR_Robot::key(char* code) {
     " KEY_NUMERIC_6 ",
     " KEY_NUMERIC_7 ",
     " KEY_NUMERIC_8 ",
-    " KEY_NUMERIC_9 "};
+    " KEY_NUMERIC_9 "
+  };
 
   for (int i = 0; i < MAXSIZE; i++) {
-    if (strstr(code, keymap[i]))  {
+    if (strstr(code, keymap[i]))
       num = i;
-    }
   }
 
   return num + 1;
@@ -54,7 +56,7 @@ void IR_Robot::checkCode(char* code) {
 
 void IR_Robot::start(void) {
   if(lirc_readconfig(NULL, &config, NULL) == 0) {
-      while(lirc_nextcode(&code)==0)  {
+      while(lirc_nextcode(&code) == 0)  {
         if(code == NULL) continue;  {
           if (millis() - buttonTimer > 400)
             checkCode(code);

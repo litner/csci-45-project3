@@ -18,6 +18,7 @@ using namespace std;
 class IR_Robot {
   private:
     int buttonTimer;
+    char *c;
     char *code;
     struct lirc_config *config;
     void checkCode(char*);
