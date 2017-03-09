@@ -19,7 +19,7 @@ class Sentry {
   public:
     Sentry(void);
     ~Sentry(void);
-    void seek(void);
+    void seek(char*);
     void destroy(void);
 };
 #endif

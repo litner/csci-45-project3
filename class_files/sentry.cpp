@@ -7,7 +7,7 @@ Sentry::Sentry(void) {
 
 Sentry::~Sentry(void) { }
 
-void Sentry::seek(void) {
+void Sentry::seek(char* code) {
   while(1) {
     result = servo_sensor.searchLeft();
 
