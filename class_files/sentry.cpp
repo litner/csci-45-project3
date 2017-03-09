@@ -3,28 +3,26 @@
 Sentry::Sentry(void) {
   result = LOW;
   cout << "Turret Deployed" << endl;
-  code = NULL;
   srand (time(NULL));
 }
 
 Sentry::~Sentry(void) { }
 
 void Sentry::seek(void) {
-    while(1) {
-      result = servo_sensor.searchLeft();
+  while(1) {
+    result = servo_sensor.searchLeft();
 
-      if (result == HIGH)
-        destroy();
+    if (result == HIGH)
+      destroy();
 
-      delay(50);
+    delay(50);
 
-      result = servo_sensor.searchRight();
+    result = servo_sensor.searchRight();
 
-      if (result == HIGH)
-        destroy();
+    if (result == HIGH)
+      destroy();
 
-      delay(50);
-    }
+    delay(50);
   }
 }
 
