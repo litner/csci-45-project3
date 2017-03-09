@@ -4,8 +4,8 @@ IR_Robot::IR_Robot(void) {
   if(lirc_init("lirc", 1) == -1)
     exit(EXIT_FAILURE);
 
-  //c = NULL;
-  //code = NULL;
+  c = NULL;
+  code = NULL;
   MAXSIZE = 21;
 
   buttonTimer = millis();
@@ -16,9 +16,8 @@ IR_Robot::~IR_Robot(void) {
   exit(EXIT_SUCCESS);
 }
 
-int IR_Robot::key(char* x) {
+int IR_Robot::key(char* code) {
   int num = 0;
-  int i;
 
   char *keymap[21] ={
     " KEY_CHANNELDOWN ",
@@ -45,7 +44,7 @@ int IR_Robot::key(char* x) {
 
   cout << "test2" << endl;
 
-  for (i = 0; i < MAXSIZE; i++) {
+  for (int i = 0; i < MAXSIZE; i++) {
     cout << "test3" << endl;
     if (strstr(x, keymap[i]))  {
       num = i;
