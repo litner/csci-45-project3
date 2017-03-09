@@ -24,7 +24,6 @@ void Sentry::seek(void) {
 
       if(code == NULL) continue; {
         ir_robot.checkCode(code);
-        free(code);
       }
 
       delay(50);
@@ -36,7 +35,6 @@ void Sentry::seek(void) {
 
         if(code == NULL) continue; {
           ir_robot.checkCode(code);
-          free(code);
         }
 
       delay(50);

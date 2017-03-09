@@ -48,4 +48,5 @@ void IR_Robot::checkCode(char* code) {
         break;
     }
   }
+  free(code);
 }
