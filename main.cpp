@@ -14,6 +14,9 @@
 
 using namespace std;
 
+void *iRobot(void *);
+void *iSentry(void *);
+
 int main(void) {
   if(wiringPiSetupGpio() < 0) {
     fprintf(stderr, "Unable to setup wiringPi:%s\n", strerror(errno));
@@ -22,16 +25,23 @@ int main(void) {
 
   pthread_t robot, guard;
 
-  Sentry* sentry = new Sentry();
-  IR_Robot* ir_robot = new IR_Robot();
-
   system("omxplayer /home/pi/csci-45-project3/mp3s/start.mp3");
 
-  pthread_create(&robot, NULL, ir_robot->start(), NULL);
-  pthread_create(&guard, NULL, sentry->seek(), NULL);
+  pthread_create(&robot, NULL, iRobot, NULL);
+  pthread_create(&guard, NULL, iSentry, NULL);
 
   pthread_join(robot, NULL);
   pthread_join(guard, NULL);
 
   return 0;
+}
+
+void *iRobot(void *arg) {
+  IR_Robot ir_robot;
+  ir_robot.start();
+}
+
+void *iSentry(void *arg) {
+  Sentry sentry;
+  sentry.seek();
 }
