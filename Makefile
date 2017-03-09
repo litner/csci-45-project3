@@ -1,8 +1,8 @@
 project: main.o ir_robot.o random_player.o relay.o sentry.o servo_sensor.o
-	g++ main.o ir_robot.o random_player.o relay.o sentry.o servo_sensor.o -llirc_client -lpthread -lwiringPi -o project.o
+	g++ main.o ir_robot.o random_player.o relay.o sentry.o servo_sensor.o -llirc_client -lpthread -lwiringPi -pthread -o project.o
 
 main.o: main.cpp
-	g++ -c -std=c++98 main.cpp -lwiringPi
+	g++ -c -std=c++98 main.cpp -lwiringPi -pthread
 
 relay.o: ./class_files/relay.cpp ./header_files/relay.h
 	g++ -c ./class_files/relay.cpp -lwiringPi

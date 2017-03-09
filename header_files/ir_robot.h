@@ -10,19 +10,24 @@
 #include <string.h>
 #include <time.h>
 #include <wiringPi.h>
-
-#define uchar unsigned char
+#include "./../header_files/random_player.h"
+#include "./../header_files/relay.h"
 
 using namespace std;
 
 class IR_Robot {
   private:
     int buttonTimer;
-    int MAXSIZE;
+    void checkCode(int);
+    char* code;
+    struct lirc_config *config;
     int key(char*);
+    int MAXSIZE;
+    RandomPlayer random_player;
+    Relay relay;
   public:
     IR_Robot(void);
     ~IR_Robot(void);
-    void checkCode(char*);
+    void start(void);
 };
 #endif
