@@ -54,21 +54,19 @@ void IR_Robot::checkCode(char* code) {
 
 void IR_Robot::start(void) {
   if(lirc_readconfig(NULL, &config, NULL) == 0) {
-    while(1) {
       while(lirc_nextcode(&code)==0)  {
         if(code == NULL) continue;  {
-          if (millis() - buttonTimer > 400) {
+          if (millis() - buttonTimer > 400)
             checkCode(code);
-          }
         }
 
         free(code);
       }
-    }
 
     lirc_freeconfig(config);
-    lirc_deinit();
   }
+
+  lirc_deinit();
 
   exit(EXIT_SUCCESS);
 }
