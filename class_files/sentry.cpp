@@ -3,6 +3,7 @@
 Sentry::Sentry(void) {
   result = LOW;
   cout << "Turret Deployed" << endl;
+  srand (time(NULL));
 }
 
 Sentry::~Sentry(void) { }
@@ -28,7 +29,7 @@ void Sentry::seek(void) {
 void Sentry::destroy(void) {
   relay.on();
 
-  delay(5000);
+  random_player.play(rand() % 11 + 1);
 
   relay.off();
 }

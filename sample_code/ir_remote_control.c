@@ -67,15 +67,42 @@ int key(char *code) {
 int RGB(int i)  {
 
   switch(i) {
-  case 1: color[0] = Lv[0]; printf("Red OFF\n"); break;
-  case 2: color[0] = Lv[1]; printf("Light Red\n"); break;
-  case 3: color[0] = Lv[2]; printf("Dark Red\n"); break;
-  case 4: color[1] = Lv[0]; printf("Green OFF\n"); break;
-  case 5: color[1] = Lv[1]; printf("Light Green\n"); break;
-  case 6: color[1] = Lv[2]; printf("Dark Green\n"); break;
-  case 7: color[2] = Lv[0]; printf("Blue OFF\n"); break;
-  case 8: color[2] = Lv[1]; printf("Light Blue\n"); break;
-  case 9: color[2] = Lv[2]; printf("Dark Green\n"); break;
+  case 1:
+    color[0] = Lv[0];
+    printf("Red OFF\n");
+    break;
+  case 2:
+    color[0] = Lv[1];
+    printf("Light Red\n");
+    break;
+  case 3:
+    color[0] = Lv[2];
+    printf("Dark Red\n");
+    break;
+  case 4:
+    color[1] = Lv[0];
+    printf("Green OFF\n");
+    break;
+  case 5:
+    color[1] = Lv[1];
+    printf("Light Green\n");
+    break;
+  case 6:
+    color[1] = Lv[2];
+    printf("Dark Green\n");
+    break;
+  case 7:
+    color[2] = Lv[0];
+    printf("Blue OFF\n");
+    break;
+  case 8:
+    color[2] = Lv[1];
+    printf("Light Blue\n");
+    break;
+  case 9:
+    color[2] = Lv[2];
+    printf("Dark Green\n");
+    break;
   }
 
 }
@@ -89,29 +116,29 @@ int main(void)  {
   if(wiringPiSetup() == -1) {
     printf("setup wiringPi failed !");
 
-  return 1;
+    return 1;
   }
 
-if(lirc_init("lirc",1)==-1)
-  exit(EXIT_FAILURE);
+  if(lirc_init("lirc",1)==-1)
+    exit(EXIT_FAILURE);
 
-ledInit();
-ledColorSet();
+  ledInit();
+  ledColorSet();
 
-if(lirc_readconfig(NULL,&config,NULL)==0) {
-  while(lirc_nextcode(&code)==0)  {
-    if(code==NULL) continue;  {
-      if (millis() - buttonTimer > 400) {
-        RGB(key(code));
-        ledColorSet(color);
+  if(lirc_readconfig(NULL,&config,NULL)==0) {
+    while(lirc_nextcode(&code)==0)  {
+      if(code==NULL) continue;  {
+        if (millis() - buttonTimer > 400) {
+          RGB(key(code));
+          ledColorSet(color);
+        }
       }
+      free(code);
     }
-  free(code);
+    lirc_freeconfig(config);
   }
-  lirc_freeconfig(config);
-}
 
-lirc_deinit();
+  lirc_deinit();
 
 exit(EXIT_SUCCESS);
 return 0;
