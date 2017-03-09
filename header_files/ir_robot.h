@@ -10,6 +10,8 @@
 #include <string.h>
 #include <time.h>
 #include <wiringPi.h>
+#include "./../header_files/random_player.h"
+#include "./../header_files/relay.h"
 
 #define uchar unsigned char
 
@@ -21,9 +23,10 @@ class IR_Robot {
     char *c;
     char *code;
     struct lirc_config *config;
-    void checkCode(char*);
     int key(char*);
     int MAXSIZE;
+    RandomPlayer random_player;
+    Relay relay;
   public:
     IR_Robot(void);
     ~IR_Robot(void);

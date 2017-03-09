@@ -35,23 +35,7 @@ int IR_Robot::key(char* code) {
       num = i;
   }
 
-  return num + 1;
-}
-
-void IR_Robot::checkCode(char* code) {
-  if (millis() - buttonTimer > 400) {
-    switch(key(code)) {
-      case 1:
-        cout << key(code) << endl;
-        break;
-      case 2:
-        cout << key(code) << endl;
-        break;
-      case 3:
-        cout << key(code) << endl;
-        break;
-    }
-  }
+  return num;
 }
 
 void IR_Robot::start(void) {
@@ -59,7 +43,23 @@ void IR_Robot::start(void) {
       while(lirc_nextcode(&code) == 0)  {
         if(code == NULL) continue;  {
           if (millis() - buttonTimer > 400)
-            checkCode(code);
+            int value = key(code);
+
+            relay.on();
+
+            switch(value) {
+              case 1:
+                cout << value << endl;
+                break;
+              case 2:
+                cout << value << endl;
+                break;
+              case 3:
+                cout << value << endl;
+                break;
+            }
+
+            relay.off();
         }
 
         free(code);
