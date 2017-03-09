@@ -25,15 +25,15 @@ int main(void) {
   system("omxplayer /home/pi/csci-45-project3/mp3s/start.mp3");
 
   int pid;
-	pid = fork();
+  pid = fork();
 
-	if(pid == 0) {
+  if(pid == 0) {
     ir_robot.start();
-		_exit(0);
-	} else {
+    _exit(0);
+  } else {
     sentry.seek();
-		wait();
-	}
+    wait();
+  }
 
   return 0;
 }
