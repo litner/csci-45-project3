@@ -1,13 +1,13 @@
 #include "./../header_files/ir_robot.h"
 
 IR_Robot::IR_Robot(void) {
-  if(lirc_init("lirc",1)==-1)
+  if(lirc_init("lirc", 1) == -1)
     exit(EXIT_FAILURE);
 
   buttonTimer = millis();
   code = NULL;
-  config = NULL;
   MAXSIZE = 10;
+  cout << "Robot Activated, waiting for command" << endl;
 }
 
 IR_Robot::~IR_Robot(void) { }
@@ -53,8 +53,8 @@ void IR_Robot::checkCode(char* code) {
 }
 
 void IR_Robot::start(void) {
-  while(1) {
-    if(lirc_readconfig(NULL,&config,NULL)==0) {
+  if(lirc_readconfig(NULL, &config, NULL) == 0) {
+    while(1) {
       while(lirc_nextcode(&code)==0)  {
         if(code == NULL) continue;  {
           if (millis() - buttonTimer > 400) {
@@ -64,11 +64,11 @@ void IR_Robot::start(void) {
 
         free(code);
       }
-
-      lirc_freeconfig(config);
     }
 
+    lirc_freeconfig(config);
     lirc_deinit();
   }
+
   exit(EXIT_SUCCESS);
 }
