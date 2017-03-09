@@ -12,7 +12,7 @@ IR_Robot::IR_Robot(void) {
 }
 
 IR_Robot::~IR_Robot(void) {
-  //lirc_freeconfig(config);
+  lirc_freeconfig(config);
   exit(EXIT_SUCCESS);
 }
 
@@ -58,9 +58,6 @@ int IR_Robot::key(char* code) {
 }
 
 void IR_Robot::checkCode(void) {
-  struct lirc_config *config;
-  char* code;
-  char* c;
   if (lirc_readconfig(NULL, &config, NULL) == 0) {
     if (millis() - buttonTimer > 400) {
       cout << "test1" << endl;
@@ -79,5 +76,4 @@ void IR_Robot::checkCode(void) {
     }
     free(code);
   }
-  lirc_freeconfig(config);
 }
