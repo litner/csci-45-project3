@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <lirc/lirc_client.h>
+#include <stdlib.h>
 #include <wiringPi.h>
 #include "./../header_files/ir_robot.h"
 #include "./../header_files/relay.h"

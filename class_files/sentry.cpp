@@ -1,7 +1,7 @@
 #include "./../header_files/sentry.h"
 
 Sentry::Sentry(void) {
-  if(lirc_init("lirc",1)==-1)
+  if(lirc_init("lirc", 1)==-1)
     exit(EXIT_FAILURE);
 
   result = LOW;
@@ -16,15 +16,15 @@ Sentry::~Sentry(void) {
 
 void Sentry::seek(void) {
   if(lirc_readconfig(NULL, &config , NULL)==0) {
-    while(lirc_nextcode(&code)==0) {
+    while(1) {
+cout << "First" << endl;
       result = servo_sensor.searchLeft();
 
       if (result == HIGH)
         destroy();
-
-      if(code == NULL) continue; {
+cout << "Second" << endl;
+      if(code != NULL)
         ir_robot.checkCode(code);
-      }
 
       delay(50);
 
@@ -33,9 +33,8 @@ void Sentry::seek(void) {
       if (result == HIGH)
         destroy();
 
-        if(code == NULL) continue; {
+        if(code != NULL)
           ir_robot.checkCode(code);
-        }
 
       delay(50);
     }

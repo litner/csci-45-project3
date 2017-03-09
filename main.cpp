@@ -17,10 +17,10 @@ int main(void) {
     return 1;
   }
 
+  system("omxplayer /home/pi/csci-45-project3/mp3s/start.mp3");
+
   Sentry sentry;
   sentry.seek();
 
   return 0;
 }
-
-//PlaySound("C:\\Users\\Litner\\Desktop\\test.wav", NULL, SND_FILENAME);
