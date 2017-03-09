@@ -19,14 +19,12 @@ class IR_Robot {
   private:
     int buttonTimer;
     char *c;
-    char *code;
-    struct lirc_config *config;
     int MAXSIZE;
 
     int key(char*);
   public:
     IR_Robot(void);
     ~IR_Robot(void);
-    void checkCode(void);
+    void checkCode(char*);
 };
 #endif

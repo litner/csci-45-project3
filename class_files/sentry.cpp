@@ -3,29 +3,39 @@
 Sentry::Sentry(void) {
   result = LOW;
   cout << "Turret Deployed" << endl;
+  code = NULL;
 }
 
-Sentry::~Sentry(void) { }
+Sentry::~Sentry(void) {
+  lirc_freeconfig(config);
+  exit(EXIT_SUCCESS);
+}
 
 void Sentry::seek(void) {
-  while(1) {
-    result = servo_sensor.searchLeft();
+  if(lirc_readconfig(NULL, &config , NULL)==0) {
+    while(lirc_nextcode(&code)==0) {
+      result = servo_sensor.searchLeft();
 
-    if (result == HIGH)
-      destroy();
+      if (result == HIGH)
+        destroy();
 
-    ir_robot.checkCode();
+      if(code==NULL) continue; {
+        ir_robot.checkCode(code);
+      }
 
-    delay(50);
+      delay(50);
 
-    result = servo_sensor.searchRight();
+      result = servo_sensor.searchRight();
 
-    if (result == HIGH)
-      destroy();
+      if (result == HIGH)
+        destroy();
 
-    ir_robot.checkCode();
+        if(code==NULL) continue; {
+          ir_robot.checkCode(code);
+        }
 
-    delay(50);
+      delay(50);
+    }
   }
 }
 

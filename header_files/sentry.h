@@ -12,7 +12,9 @@ using namespace std;
 
 class Sentry {
   private:
+    char *code;
     IR_Robot ir_robot;
+    struct lirc_config *config;
     Relay relay;
     int result;
     ServoSensor servo_sensor;
