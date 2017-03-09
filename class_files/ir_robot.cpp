@@ -21,7 +21,7 @@ int IR_Robot::key(char* code) {
   int num = 0;
   int i;
 
-  char* x = code
+  char* x = code;
 
   char *keymap[21] ={
     " KEY_CHANNELDOWN ",
