@@ -21,6 +21,7 @@ class IR_Robot {
   private:
     int buttonTimer;
     char *c;
+    void checkCode(int);
     char *code;
     struct lirc_config *config;
     int key(char*);
