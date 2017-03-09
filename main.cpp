@@ -17,9 +17,10 @@ int main(void) {
     return 1;
   }
 
+  Sentry sentry;
+
   system("omxplayer /home/pi/csci-45-project3/mp3s/start.mp3");
 
-  Sentry sentry;
   sentry.seek();
 
   return 0;

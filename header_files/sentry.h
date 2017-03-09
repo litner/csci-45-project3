@@ -2,10 +2,10 @@
 #define SENTRY_H
 
 #include <iostream>
-#include <lirc/lirc_client.h>
 #include <stdlib.h>
+#include <time.h>
 #include <wiringPi.h>
-#include "./../header_files/ir_robot.h"
+#include "./../header_files/random_player.h"
 #include "./../header_files/relay.h"
 #include "./../header_files/servo_sensor.h"
 
@@ -13,9 +13,7 @@ using namespace std;
 
 class Sentry {
   private:
-    char *code;
-    IR_Robot ir_robot;
-    struct lirc_config *config;
+    RandomPlayer random_player;
     Relay relay;
     int result;
     ServoSensor servo_sensor;

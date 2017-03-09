@@ -1,30 +1,20 @@
 #include "./../header_files/sentry.h"
 
 Sentry::Sentry(void) {
-  if(lirc_init("lirc", 1)==-1)
-    exit(EXIT_FAILURE);
-
   result = LOW;
   cout << "Turret Deployed" << endl;
   code = NULL;
+  srand (time(NULL));
 }
 
-Sentry::~Sentry(void) {
-  lirc_freeconfig(config);
-  exit(EXIT_SUCCESS);
-}
+Sentry::~Sentry(void) { }
 
 void Sentry::seek(void) {
-  if(lirc_readconfig(NULL, &config , NULL)==0) {
     while(1) {
-cout << "First" << endl;
       result = servo_sensor.searchLeft();
 
       if (result == HIGH)
         destroy();
-cout << "Second" << endl;
-      if(code != NULL)
-        ir_robot.checkCode(code);
 
       delay(50);
 
@@ -32,9 +22,6 @@ cout << "Second" << endl;
 
       if (result == HIGH)
         destroy();
-
-        if(code != NULL)
-          ir_robot.checkCode(code);
 
       delay(50);
     }
@@ -44,7 +31,7 @@ cout << "Second" << endl;
 void Sentry::destroy(void) {
   relay.on();
 
-  delay(5000);
+  random_player.play(rand() % 11 + 1);
 
   relay.off();
 }
