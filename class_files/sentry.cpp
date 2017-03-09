@@ -7,14 +7,14 @@ Sentry::Sentry(void) {
 
 Sentry::~Sentry(void) { }
 
-void Sentry::seek(char* code) {
+void Sentry::seek(void) {
   while(1) {
     result = servo_sensor.searchLeft();
 
     if (result == HIGH)
       destroy();
 
-    ir_robot.checkCode(code);
+    ir_robot.checkCode();
 
     delay(50);
 
@@ -23,7 +23,7 @@ void Sentry::seek(char* code) {
     if (result == HIGH)
       destroy();
 
-    ir_robot.checkCode(code);
+    ir_robot.checkCode();
 
     delay(50);
   }
