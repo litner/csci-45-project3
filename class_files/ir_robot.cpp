@@ -34,7 +34,7 @@ int IR_Robot::key(char* code) {
       num = i;
   }
 
-  return num;
+  return num + 1;
 }
 
 void IR_Robot::checkCode(int code) {
