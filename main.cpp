@@ -55,12 +55,12 @@ int key(char *code) {
 }
 
 int main(void) {
-
+/*
   struct lirc_config *config;
   int buttonTimer = millis();
   char *code;
   char *c;
-
+*/
   if(wiringPiSetupGpio() < 0) {
     fprintf(stderr, "Unable to setup wiringPi:%s\n", strerror(errno));
     return 1;
