@@ -19,9 +19,9 @@ class IR_Robot {
   private:
     int buttonTimer;
     void checkCode(int);
-    string code;
+    char* code;
     struct lirc_config *config;
-    int key(string);
+    int key(char*);
     int MAXSIZE;
     RandomPlayer random_player;
     Relay relay;
