@@ -1,9 +1,13 @@
 #include "./../header_files/ir_robot.h"
 
 IR_Robot::IR_Robot(void) {
-  MAXSIZE = 10;
+  if(lirc_init("lirc",1)==-1)
+    exit(EXIT_FAILURE);
 
   buttonTimer = millis();
+  code = NULL;
+  config = NULL;
+  MAXSIZE = 10;
 }
 
 IR_Robot::~IR_Robot(void) { }
@@ -29,8 +33,6 @@ int IR_Robot::key(char* code) {
     }
   }
 
-  cout << "test:" << num << endl;
-
   return num + 1;
 }
 
@@ -49,4 +51,24 @@ void IR_Robot::checkCode(char* code) {
     }
   }
   free(code);
+}
+
+void IR_Robot::start(void) {
+  if(lirc_readconfig(NULL,&config,NULL)==0) {
+    while(lirc_nextcode(&code)==0)  {
+      if(code == NULL) continue;  {
+        if (millis() - buttonTimer > 400) {
+          checkCode(code);
+        }
+      }
+
+      free(code);
+    }
+
+    lirc_freeconfig(config);
+  }
+
+  lirc_deinit();
+
+  exit(EXIT_SUCCESS);
 }

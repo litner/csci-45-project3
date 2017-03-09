@@ -7,6 +7,7 @@
 #include <lirc/lirc_client.h>
 #include <time.h>
 #include <errno.h>
+#include "./header_files/ir_robot.h"
 #include "./header_files/sentry.h"
 
 using namespace std;
@@ -18,10 +19,20 @@ int main(void) {
   }
 
   Sentry sentry;
+  IR_Robot ir_robot;
 
   system("omxplayer /home/pi/csci-45-project3/mp3s/start.mp3");
 
-  sentry.seek();
+  int pid;
+	pid = fork();
+
+	if(pid == 0) {
+    ir_robot.start();
+		_exit(0);
+	} else {
+    sentry.seek();
+		wait();
+	}
 
   return 0;
 }

@@ -18,11 +18,14 @@ using namespace std;
 class IR_Robot {
   private:
     int buttonTimer;
-    int MAXSIZE;
+    char *code;
+    struct lirc_config *config;
+    void checkCode(char*);
     int key(char*);
+    int MAXSIZE;
   public:
     IR_Robot(void);
     ~IR_Robot(void);
-    void checkCode(char*);
+    void start(void);
 };
 #endif
