@@ -4,7 +4,7 @@ IR_Robot::IR_Robot(void) {
   if(lirc_init("lirc", 1) == -1)
     exit(EXIT_FAILURE);
 
-  //free(code);
+  free(code);
   //c = NULL;
   //code = NULL;
   MAXSIZE = 21;
