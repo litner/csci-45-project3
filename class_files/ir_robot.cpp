@@ -17,7 +17,6 @@ IR_Robot::~IR_Robot(void) {
 }
 
 int IR_Robot::key(char* code) {
-  struct lirc_config *config;
   int num = 0;
   int i;
 
@@ -59,6 +58,8 @@ int IR_Robot::key(char* code) {
 }
 
 void IR_Robot::checkCode(char* code) {
+  struct lirc_config *config;
+  char* code;
   if (lirc_readconfig(NULL, &config, NULL) == 0) {
     if (millis() - buttonTimer > 400) {
       cout << "test1" << endl;
