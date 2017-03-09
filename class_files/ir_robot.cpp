@@ -58,13 +58,13 @@ void IR_Robot::checkCode(void) {
       lirc_nextcode(&code);
       switch(key(code)) {
         case 1:
-          cout << key(code) << endl;
+          cout << "case 1" << endl;
           break;
         case 2:
-          cout << key(code) << endl;
+          cout << "case 2" << endl;
           break;
         case 3:
-          cout << key(code) << endl;
+          cout << "case 3" << endl;
           break;
       }
     }
