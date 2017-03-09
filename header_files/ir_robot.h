@@ -23,7 +23,7 @@ class IR_Robot {
     struct lirc_config *config;
     int MAXSIZE;
 
-    int key(char* code);
+    int key(char* x);
   public:
     IR_Robot(void);
     ~IR_Robot(void);

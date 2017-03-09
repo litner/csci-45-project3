@@ -16,7 +16,7 @@ IR_Robot::~IR_Robot(void) {
   exit(EXIT_SUCCESS);
 }
 
-int IR_Robot::key(char* code) {
+int IR_Robot::key(char* x) {
   int num = 0;
   int i;
 
@@ -47,7 +47,7 @@ int IR_Robot::key(char* code) {
 
   for (i = 0; i < MAXSIZE; i++) {
     cout << "test3" << endl;
-    if (strstr(code, keymap[i]))  {
+    if (strstr(x, keymap[i]))  {
       num = i;
     }
   }
