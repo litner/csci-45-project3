@@ -1,11 +1,12 @@
-#include <errno.h>
 #include <iostream>
+#include <wiringPi.h>
 #include <softPwm.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <wiringPi.h>
+#include <lirc/lirc_client.h>
 #include <time.h>
+#include <errno.h>
 #include "./header_files/sentry.h"
 
 using namespace std;

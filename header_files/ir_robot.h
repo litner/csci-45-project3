@@ -20,7 +20,6 @@ class IR_Robot {
     int buttonTimer;
     char *c;
     int MAXSIZE;
-
     int key(char*);
   public:
     IR_Robot(void);

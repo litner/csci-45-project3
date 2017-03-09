@@ -11,10 +11,10 @@ IR_Robot::IR_Robot(void) {
 
 IR_Robot::~IR_Robot(void) { }
 
-int IR_Robot::key(char *code) {
+int IR_Robot::key(char* code) {
   int num = 0;
 
-  char *keymap[MAXSIZE] = {
+  char *keymap[MAXSIZE] ={
     " KEY_NUMERIC_0 ",
     " KEY_NUMERIC_1 ",
     " KEY_NUMERIC_2 ",
@@ -24,12 +24,15 @@ int IR_Robot::key(char *code) {
     " KEY_NUMERIC_6 ",
     " KEY_NUMERIC_7 ",
     " KEY_NUMERIC_8 ",
-    " KEY_NUMERIC_9 "
-  };
+    " KEY_NUMERIC_9 "};
 
-  for (int i = 0; i < MAXSIZE; i++)
-    if (strstr(code, keymap[i]))
+  for (int i = 0; i < MAXSIZE; i++) {
+    if (strstr(code, keymap[i]))  {
       num = i;
+    }
+  }
+
+  cout << "test:" << num << endl;
 
   return num + 1;
 }
