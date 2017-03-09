@@ -28,7 +28,7 @@ int main(void) {
   system("omxplayer /home/pi/csci-45-project3/mp3s/start.mp3");
 
   pthread_create(&robot, NULL, ir_robot.start(), NULL);
-  pthread_create(&guard, NULL< sentry.seek(), NULL);
+  pthread_create(&guard, NULL, sentry.seek(), NULL);
 
   pthread_join(robot, NULL);
   pthread_join(guard, NULL);
