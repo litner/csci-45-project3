@@ -40,17 +40,7 @@ int IR_Robot::key(char* code) {
 void IR_Robot::checkCode(int code) {
   relay.on();
 
-  switch(code) {
-    case 1:
-      cout << code << endl;
-      break;
-    case 2:
-      cout << code << endl;
-      break;
-    case 3:
-      cout << code << endl;
-      break;
-  }
+  random_player.play(code);
 
   relay.off();
 }
