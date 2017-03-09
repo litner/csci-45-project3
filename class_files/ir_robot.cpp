@@ -64,7 +64,6 @@ void IR_Robot::checkCode(char* code) {
   if (lirc_readconfig(NULL, &config, NULL) == 0) {
     if (millis() - buttonTimer > 400) {
       cout << "test1" << endl;
-      cout << code << endl;
       switch(key(code)) {
         case 1:
           cout << "test5" << endl;
