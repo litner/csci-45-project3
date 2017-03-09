@@ -27,6 +27,6 @@ class IR_Robot {
   public:
     IR_Robot(void);
     ~IR_Robot(void);
-    void start(void);
+    void *start(void);
 };
 #endif

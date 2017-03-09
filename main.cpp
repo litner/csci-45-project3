@@ -20,7 +20,7 @@ int main(void) {
     return 1;
   }
 
-  pthread_t robot, guard
+  pthread_t robot, guard;
 
   Sentry sentry;
   IR_Robot ir_robot;

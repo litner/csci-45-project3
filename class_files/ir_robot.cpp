@@ -54,7 +54,7 @@ void IR_Robot::checkCode(char* code) {
   }
 }
 
-void IR_Robot::start(void) {
+void IR_Robot::*start(void) {
   if(lirc_readconfig(NULL, &config, NULL) == 0) {
       while(lirc_nextcode(&code) == 0)  {
         if(code == NULL) continue;  {
