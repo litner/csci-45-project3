@@ -16,7 +16,7 @@ IR_Robot::~IR_Robot(void) { }
 int IR_Robot::key(char* code) {
   int num = 0;
 
-  string keymap[MAXSIZE] = {
+  char* keymap[MAXSIZE] = {
     " KEY_NUMERIC_0 ",
     " KEY_NUMERIC_1 ",
     " KEY_NUMERIC_2 ",
