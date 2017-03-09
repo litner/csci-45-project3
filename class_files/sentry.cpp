@@ -14,8 +14,7 @@ void Sentry::seek(char* code) {
     if (result == HIGH)
       destroy();
 
-    cout << key(code) << endl;
-    ir_robot.checkCode();
+    ir_robot.checkCode(code);
 
     delay(50);
 
@@ -24,8 +23,7 @@ void Sentry::seek(char* code) {
     if (result == HIGH)
       destroy();
 
-    cout << key(code) << endl;
-    ir_robot.checkCode();
+    ir_robot.checkCode(code);
 
     delay(50);
   }

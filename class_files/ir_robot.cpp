@@ -60,7 +60,7 @@ int IR_Robot::key(char* code) {
   return num + 1;
 }
 
-void IR_Robot::checkCode(void) {
+void IR_Robot::checkCode(char* code) {
   if (lirc_readconfig(NULL, &config, NULL) == 0) {
     if (millis() - buttonTimer > 400) {
       cout << "test1" << endl;
