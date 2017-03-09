@@ -21,8 +21,6 @@ int IR_Robot::key(char* code) {
   int num = 0;
   int i;
 
-  char* x = code;
-
   char *keymap[21] ={
     " KEY_CHANNELDOWN ",
     " KEY_CHANNEL ",
@@ -50,7 +48,7 @@ int IR_Robot::key(char* code) {
 
   for (i = 0; i < MAXSIZE; i++) {
     cout << "test3" << endl;
-    if (strstr(x, keymap[i]))  {
+    if (strstr(code, keymap[i]))  {
       num = i;
     }
   }
